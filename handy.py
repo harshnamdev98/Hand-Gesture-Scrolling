@@ -11,6 +11,11 @@ def action_func(incoming_data):
 
     # print the incoming data
     print('handy', incoming_data)
+
+    if '0' in incoming_data:        # minimizing window
+        pyautogui.hotkey('winleft', 'down')
+        time.sleep(1)
+
     if '1' in incoming_data:                    # if incoming data is 'next'
         # perform "ctrl+pgdn" operation which moves to the next tab
         pyautogui.hotkey('ctrl', 'pgdn')
@@ -34,7 +39,7 @@ def action_func(incoming_data):
         # pyautogui.keyDown('alt')
         # pyautogui.press('space')
         # pyautogui.keyUp('alt')
-        pyautogui.hotkey('winleft', 'down')
+        pyautogui.hotkey('winleft', 'up')   # maximizing window
         time.sleep(1)
 
     incoming_data = ""                            # clears the data
