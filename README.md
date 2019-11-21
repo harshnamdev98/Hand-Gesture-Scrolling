@@ -95,10 +95,10 @@ defects = cv2.convexityDefects(res, hull)
 
 ![Alt text](screenshot/output.png)
 
-![alt test](screenshot/Annotation 2019-11-21 173111.png)
+![Alt text](screenshot/full.png)
 
 #### Using on Chrome 
-![alt test](screenshot/Annotation 2019-11-21 173430.png)
+![Alt text](screenshot/working.png)
 
 #### Gesture to Operate 
 - 1.Switch right
