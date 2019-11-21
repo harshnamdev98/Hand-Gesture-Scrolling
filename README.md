@@ -27,7 +27,7 @@ This is project based on opencv and python by which we can control our pc by usi
 
 Capture video from camera and pick up a frame.
 
-![Alt text](screenshot/-1474508814843.png)
+![Alt text](screenshot/-img1.png)
 
 #### Capture background model & Background subtraction
 Use background subtraction method called **Gaussian Mixture-based Background/Foreground Segmentation Algorithm** to subtract background. 
@@ -56,7 +56,7 @@ res = cv2.bitwise_and(frame, frame, mask=fgmask)
 
 Get the foreground(hand) image
 
-![Alt text](screenshot/-1474508613267.png)
+![Alt text](screenshot/-mask.png)
 
 #### Gaussian blur & Threshold
 ```python
@@ -69,14 +69,14 @@ blur = cv2.GaussianBlur(gray, (blurValue, blurValue), 0)
 ```
 By Gaussian blurring, we create smooth transition from one color to another and reduce the edge content.
 
-![Alt text](screenshot/-1474508640877.png)
+![Alt text](screenshot/-blur.png)
 
 ```python
 ret, thresh = cv2.threshold(blur, threshold, 255, cv2.THRESH_BINARY)
 ```
 We use thresholding to create binary images from grayscale images. 
 
-![Alt text](screenshot/-1474508661044.png)
+![Alt text](screenshot/-grayscale.png)
 
 
 #### Contour & Hull & Convexity 
@@ -93,8 +93,20 @@ hull = cv2.convexHull(res)
 defects = cv2.convexityDefects(res, hull)
 ```
 
-![Alt text](screenshot/-1474508788185.png)
+![Alt text](screenshot/-output.png)
 
+![Alt text](screenshot/-Annotation 2019-11-21 173111.png)
+
+#### Using on Chrome 
+![Alt text](screenshot/-Annotation 2019-11-21 173430.png)
+
+#### Gesture to Operate 
+- 1.Switch right
+- 2.Switch left
+- 3.Scroll down
+- 4.Scroll up
+- 5.Maximize
+- 0.Minimize
 
 ## References & Tutorials
 
