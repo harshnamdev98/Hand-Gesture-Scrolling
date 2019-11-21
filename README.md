@@ -2,7 +2,7 @@
 This is project based on opencv and python by which we can control our pc by using our hand and webcam 
 
 # Environment
-- OS: Windows/Linux/MacOS El Capitan
+- OS: Windows 
 - Platform: Python 3
 - Librarys: 
 	- OpenCV 3
@@ -95,10 +95,10 @@ defects = cv2.convexityDefects(res, hull)
 
 ![Alt text](screenshot/output.png)
 
-![Alt text](screenshot/Annotation 2019-11-21 173111.png)
+![alt test](screenshot/Annotation 2019-11-21 173111.png)
 
 #### Using on Chrome 
-![Alt text](screenshot/Annotation 2019-11-21 173430.png)
+![alt test](screenshot/Annotation 2019-11-21 173430.png)
 
 #### Gesture to Operate 
 - 1.Switch right
