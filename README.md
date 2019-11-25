@@ -17,10 +17,12 @@ This is project based on opencv and python by which we can control our pc by usi
 - import time
 
  ## How to run it?
-- run it in python
+- run it in python 
+- command : python hand-gesture.py  (For hand recognition)
 - press `'b'` to capture the background model (Remember to move your hand out of the blue rectangle)
 - press `'r'` to reset the backgroud model
 - press `'ESC'` to exit
+- command : python hand_voice.py    (For hand + speech recognition)
 
 ## Process
 #### Capture original image
@@ -108,9 +110,16 @@ defects = cv2.convexityDefects(res, hull)
 - 5.Maximize
 - 0.Minimize
 
+#### Voice Commands
+- 1.Zoom In      : To zoom in the tab
+- 2.Zoom Out     : To zoom out the tab
+- 3.Close Tab    : To close the current tab
+- 4.Snap	 : To take screenshot of the screen
 ## References & Tutorials
 
 1. OpenCV documentation: 
 http://docs.opencv.org/2.4.13/
 2. Opencv python hand gesture recognition:
 http://creat-tabu.blogspot.com/2013/08/opencv-python-hand-gesture-recognition.html
+3. Speech Recognition:
+https://pypi.org/project/SpeechRecognition
