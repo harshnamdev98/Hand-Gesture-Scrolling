@@ -22,9 +22,12 @@ def recognize_speech_from_mic(recognizer, microphone):
     if not isinstance(microphone, sr.Microphone):
         raise TypeError("`microphone` must be `Microphone` instance")
 
-    # adjust the recognizer sensitivity to ambient noise and record audio
+    # adjust the recognizer sensitiviFalsety to ambient noise and record audio
     # from the microphone
+    recognizer.dynamic_energy_threshold =True 
     with microphone as source:
+        recognizer.energy_threshold=1500
+        recognizer.pause_threshold=0.5
         recognizer.adjust_for_ambient_noise(source)
         audio = recognizer.listen(source)
 
@@ -55,9 +58,9 @@ def speech_main():
     # if __name__ == "__main__":
     # set the list of words, maxnumber of guesses, and prompt limit
     # WORDS = ["apple", "banana", "grape", "orange", "mango", "lemon"]
-    WORDS = ["zoom in","ZoomIn","zoom out","ZoomOut"]
-    NUM_GUESSES = 30
-    PROMPT_LIMIT = 5
+    WORDS = ["zoom in","ZoomIn","zoom out","ZoomOut","Terminal","terminal"]
+    NUM_GUESSES = 300
+    PROMPT_LIMIT = 20
 
     # create recognizer and mic instances
     recognizer = sr.Recognizer()
@@ -89,7 +92,7 @@ def speech_main():
         #     re-prompt the user to say their guess again. Do this up
         #     to PROMPT_LIMIT times
         for j in range(PROMPT_LIMIT):
-            print('Guess {}. Speak!'.format(i+1))
+            print('{}. Speak!'.format(i+1))
             guess = recognize_speech_from_mic(recognizer, microphone)
             if guess["transcription"]:
                 break
@@ -104,7 +107,8 @@ def speech_main():
 
         # show the user the transcription
         print("You said: {}".format(guess["transcription"]))
-
+        if guess["transcription"]==None:
+            continue
         # determine if guess is correct and if any attempts remain
         guess_is_correct = guess["transcription"].lower() 
         user_has_more_attempts = i < NUM_GUESSES - 1
@@ -113,15 +117,43 @@ def speech_main():
         # if not, repeat the loop if user has more attempts
         # if no attempts left, the user loses the game
         print(guess_is_correct," this is comparanble")
-        if guess_is_correct == 'zoom in' or guess_is_correct=="zoomin":
+
+        ##added 28-12-19
+        if guess_is_correct.find('zoom in') != -1 or  guess_is_correct.find('zoomin') != -1:
             print("zoom in -100")
             handy1.action_func('zoomin')
-            # break
-        elif guess_is_correct == 'zoom out' or guess_is_correct=="zoomout":
+        elif guess_is_correct.find('zoom out') != -1 or  guess_is_correct.find('zoomout') != -1:
             print ('zoom out +100')
             handy1.action_func('zoomout')
+        elif guess_is_correct.find('terminal') != -1 or  guess_is_correct.find('cmd') != -1:
+            print ('open terminal')
+            handy1.action_func('terminal')
+        elif guess_is_correct.find('close tab')!=-1 or guess_is_correct.find('closetab')!=-1:
+            print('close tab')
+            handy1.action_func('closetab')
+        elif guess_is_correct.find('open tab')!=-1 or guess_is_correct.find('opentab')!=-1 or guess_is_correct.find('newtab')!=-1 or guess_is_correct.find('new tab')!=-1:
+            print('open tab')
+            handy1.action_func('opentab')
+        elif guess_is_correct.find('close window')!=-1 or guess_is_correct.find('closewindow')!=-1:
+            print('close window')
+            handy1.action_func('closewindow')
+        elif guess_is_correct.find('screenshot')!=-1 or guess_is_correct.find('screen shot')!=-1:
+            print('screen shot')
+            handy1.action_func('screenshot')
+        
+        
+
+        # if guess_is_correct == 'zoom in' or guess_is_correct=="zoomin":
+        #     print("zoom in -100")
+        #     handy1.action_func('zoomin')
+        #     # break
+        # elif guess_is_correct == 'zoom out' or guess_is_correct=="zoomout":
+        #     print ('zoom out +100')
+        #     handy1.action_func('zoomout')
         # elif user_has_more_attempts:
         #     print("Incorrect. Try again.\n")
         # else:
         #     print("Sorry, you lose!\nI was thinking of '{}'.".format(word))
             # break
+
+speech_main()
