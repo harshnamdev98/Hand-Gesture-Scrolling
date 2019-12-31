@@ -5,7 +5,10 @@
 # add pyautogui library for programmatically controlling the mouse and keyboard.
 import pyautogui
 import time
-
+import winsound
+frequency = 2500  # Set Frequency To 2500 Hertz
+duration = 1000  # Set Duration To 1000 ms == 1 second
+# winsound.Beep(frequency, duration)
 
 def action_func(incoming_data):
 
@@ -43,4 +46,33 @@ def action_func(incoming_data):
         pyautogui.hotkey('winleft', 'down')   # maximizing window
         time.sleep(1)
 
+    if 'zoomin' in incoming_data:
+        pyautogui.hotkey('ctrl', '+')
+        # time.sleep(1)
+
+    if 'zoomout' in incoming_data:
+        pyautogui.hotkey('ctrl', '-')
+        # time.sleep(1)
+
+    if 'terminal' in incoming_data:
+        pyautogui.hotkey('winleft','r')
+        pyautogui.press('enter')
+
+    if 'closetab' in incoming_data:
+        pyautogui.hotkey('ctrl','w')
+        # pyautogui.press('enter')
+    
+    if 'opentab' in incoming_data:
+        pyautogui.hotkey('ctrl','t')
+        # pyautogui.press('enter')
+    
+    if 'closewindow' in incoming_data:
+        pyautogui.hotkey('alt','f4')
+
+    if 'screenshot' in incoming_data:
+        # pyautogui.hotkey('winleft','')
+        pyautogui.screenshot(r"F:\[[[[final_project\screenshots\screenshot.png")
+        winsound.Beep(frequency, duration)
+
+    
     incoming_data = ""                            # clears the data
