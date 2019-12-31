@@ -110,11 +110,19 @@ defects = cv2.convexityDefects(res, hull)
 - 5.Maximize
 - 0.Minimize
 
+### Speech Recognition
+Added speech recognition using python in this project for voice controlling of pc .
+Run speech.py file for the same . And working on it for making it run simultaneously with gesture recognition module.
+
 #### Voice Commands
 - 1.Zoom In      : To zoom in the tab
 - 2.Zoom Out     : To zoom out the tab
-- 3.Close Tab    : To close the current tab
-- 4.Snap	 : To take screenshot of the screen
+- 3.Close Tab    : To close the current tab on web browser
+- 4.Screenshot	 : To take screenshot of the screen
+- 5.Open Tab/New Tab :To open new the tab on web browser
+- 6.Close Window : To close application 
+- 7.Open Terminal : To open command prompt on windows
+
 ## References & Tutorials
 
 1. OpenCV documentation: 
